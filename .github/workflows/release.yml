@@ -19,7 +19,7 @@ jobs:
       - name: publish release
         uses: softprops/action-gh-release@v1
         with:
-          files: tangler-${{ env.RELEASE_VERSION }}-standalone.jar
+          files: target/tangler-${{ env.RELEASE_VERSION }}-standalone.jar
           draft: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
