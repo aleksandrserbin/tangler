@@ -53,13 +53,13 @@ jobs:
       - name: Build Native Image
         run: lein native-image
       - name: package
-        run: sudo tar -czf tangler-x86_64-${BUILD_OS}.tar.gz target/tangler
+        run: sudo tar -czf tangler-x86_64-${{ matrix.os.name }}.tar.gz target/tangler
         env:
           BUILD_OS: ${{ matrix.os.name }}
       - name: publish release
         uses: softprops/action-gh-release@v1
         with:
-          files: tangler-x86_64-${BUILD_OS}.tar.gz
+          files: tangler-x86_64-${{ matrix.os.name }}.tar.gz
           draft: true
         env:
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

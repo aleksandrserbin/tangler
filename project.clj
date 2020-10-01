@@ -1,4 +1,4 @@
-(defproject tangler "1.0.5"
+(defproject tangler "1.0.6"
   :description "Code block extractor"
   :url "http://github.com/wlad031/tagler"
   :license {:name "DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE Version 2"
