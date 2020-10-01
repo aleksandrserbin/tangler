@@ -17,8 +17,7 @@ jobs:
       - name: publish release
         uses: softprops/action-gh-release@v1
         with:
-          files: tangler-$RELEASE_VERSION-standalone.jar
-          fail_on_unmatched_files: true
+          files: tangler-${RELEASE_VERSION}-standalone.jar
           draft: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -31,8 +30,8 @@ jobs:
             image: ubuntu-latest
           - name: macos
             image: macOS-latest
-          - name: windows
-            image: windows-latest
+#          - name: windows
+#            image: windows-latest
     runs-on: ${{ matrix.os.image }}
     steps:
       - name: Checkout
@@ -60,8 +59,7 @@ jobs:
       - name: publish release
         uses: softprops/action-gh-release@v1
         with:
-          files: |
-              tangler-x86_64-${BUILD_OS}.tar.gz
+          files: tangler-x86_64-${BUILD_OS}.tar.gz
           draft: true
         env:
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
