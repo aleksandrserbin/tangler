@@ -18,4 +18,6 @@
   :profiles {:native-image {
                       :dependencies [[borkdude/clj-reflector-graal-java11-fix "0.0.1-graalvm-20.2.0"]]
                       :jvm-opts ["-Dclojure.compiler.direct-linking=true"]}}
+  :aliases {
+   "build-release" ["do" "uberjar," "native-image"]}
   :main tangler.core)
