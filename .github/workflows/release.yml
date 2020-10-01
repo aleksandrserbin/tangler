@@ -17,7 +17,7 @@ jobs:
       - name: publish release
         uses: softprops/action-gh-release@v1
         with:
-          files: tangler-${RELEASE_VERSION}-standalone.jar
+          files: tangler-${{ env.RELEASE_VERSION }}-standalone.jar
           draft: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -54,8 +54,6 @@ jobs:
         run: lein native-image
       - name: package
         run: sudo tar -czf tangler-x86_64-${{ matrix.os.name }}.tar.gz target/tangler
-        env:
-          BUILD_OS: ${{ matrix.os.name }}
       - name: publish release
         uses: softprops/action-gh-release@v1
         with:
@@ -63,6 +61,5 @@ jobs:
           draft: true
         env:
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-            BUILD_OS: ${{ matrix.os.name }}
 
 
